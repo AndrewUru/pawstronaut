@@ -1,22 +1,22 @@
 export const menuMain = [
-	{
-		name: "Home",
-		url: "/",
-	},
-	{
-		name: "About Us",
-		url: "/about-us",
-	},
-	{
-		name: "Adopt",
-		url: "/cats",
-	},
-	{
-		name: "Blog",
-		url: "/blog",
-	},
-	{
-		name: "Contact",
-		url: "/contact",
-	},
+  {
+    name: "Inicio",
+    url: "/",
+  },
+  {
+    name: "Sobre Nosotros",
+    url: "/about-us",
+  },
+  {
+    name: "Adopta",
+    url: "/cats",
+  },
+  {
+    name: "Blog",
+    url: "/blog",
+  },
+  {
+    name: "Contacto",
+    url: "/contact",
+  },
 ];
