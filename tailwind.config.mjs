@@ -3,8 +3,14 @@ export default {
 	content: ["./src/**/*.{astro,html,js,jsx,ts,tsx,mdx,md}"],
 	theme: {
 		extend: {
+			colors: {
+				primary: "#2F3DE0",
+				secondary: "#E11D8D",
+				accent: "#FACC15",
+			},
 			fontFamily: {
-				caveat: ["Caveat Brush", "serif"],
+				sans: ["Nunito", "ui-sans-serif", "system-ui", "sans-serif"],
+				display: ["Fredoka", "Nunito", "ui-sans-serif", "system-ui", "sans-serif"],
 			},
 			container: {
 				center: true,

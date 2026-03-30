@@ -1,8 +1,20 @@
 ---
-const { title, description, class: className = "" } = Astro.props;
+const { title, description, image, class: className = "" } = Astro.props;
 ---
 
-<article class={`rounded-[1.75rem] border border-white/80 bg-white/90 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.06)] md:p-7 ${className}`}>
-  <h3 class="text-2xl md:text-[1.9rem]">{title}</h3>
-  <p class="mt-4 text-base md:text-lg">{description}</p>
+<article class={`group overflow-hidden rounded-[1.75rem] bg-white shadow-[0_18px_45px_rgba(15,23,42,0.06)] transition hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(15,23,42,0.12)] ${className}`}>
+  <div class="h-48 w-full overflow-hidden">
+    <img
+      src={image}
+      alt={title}
+      class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+
+  <div class="p-5 text-center md:p-6">
+    <h3 class="mb-2 text-lg font-semibold md:text-2xl">{title}</h3>
+    <p class="text-sm text-slate-600 md:text-base">{description}</p>
+  </div>
 </article>

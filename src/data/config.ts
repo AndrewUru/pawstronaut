@@ -5,6 +5,7 @@ export const siteDomain = "kidpampum.com";
 export const siteName = "Kid Pam Pum";
 export const siteSlogan = "La Casita Musical";
 export const themeColor = "#f97316";
+export const siteLogo = "https://www.kidpampum.com/wp-content/uploads/go-x/u/a946f686-e794-43fb-832d-e8ce1edc2880/image-342x342.png";
 
 export const phone = {
   href: "tel:+34633796409",

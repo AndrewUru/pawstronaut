@@ -4,14 +4,17 @@ export const valueItems = [
   {
     title: "Aprender creando",
     description: "Tocar, explorar y expresarse desde el primer día.",
+    image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d",
   },
   {
     title: "Método natural",
     description: "La música se integra como una experiencia viva, no como una rutina rígida.",
+    image: "https://images.unsplash.com/photo-1507838153414-b4b713384a76",
   },
   {
     title: "Comunidad y disfrute",
     description: "Crear, jugar y disfrutar forman parte del aprendizaje.",
+    image: "https://images.unsplash.com/photo-1515169067868-5387ec356754",
   },
 ];
 

@@ -3,7 +3,7 @@ import "~/styles/tailwind.css";
 import { ClientRouter } from "astro:transitions";
 import Header from "~/components/Header.astro";
 import Footer from "~/components/Footer.astro";
-import { siteName, siteLang, themeColor } from "~/data/config";
+import { siteName, siteLang, themeColor, siteLogo } from "~/data/config";
 
 const {
   pageTitle = `${siteName} | La Casita Musical en Valencia`,
@@ -11,7 +11,6 @@ const {
   description = "Escuela de musica en Valencia para ninos, jovenes, adultos y colegios. Aprende musica de forma natural, inmersiva y divertida en Kid Pam Pum.",
 } = Astro.props;
 
-const baseUrl = `${Astro.url.protocol}//${Astro.url.host}`;
 ---
 
 <!doctype html>
@@ -35,7 +34,7 @@ const baseUrl = `${Astro.url.protocol}//${Astro.url.host}`;
     <meta property="og:url" content={Astro.url} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
-    <meta property="og:image" content={`${baseUrl}/images/og-image.jpg`} />
+    <meta property="og:image" content={siteLogo} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:locale" content={siteLang} />
@@ -44,6 +43,7 @@ const baseUrl = `${Astro.url.protocol}//${Astro.url.host}`;
     <meta name="twitter:url" content={Astro.url} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={siteLogo} />
 
     <title>{pageTitle}</title>
     <ClientRouter />

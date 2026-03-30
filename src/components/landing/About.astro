@@ -1,15 +1,24 @@
 ---
 import Section from "~/components/Section.astro";
 import Container from "~/components/Container.astro";
+
+const aboutBackground = "/images/fachada-about.jpg"; // reemplaza por tu foto de fachada cuando la tengas
 ---
 
-<Section id="quienes-somos" class="bg-white/70">
-  <Container class:list="!py-18 md:!py-24">
-    <div class="mx-auto max-w-4xl rounded-[2rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(255,249,242,0.98)_100%)] p-8 shadow-[0_20px_55px_rgba(15,23,42,0.07)] lg:p-12">
-      <h2 class="h2">Más que una escuela, una casita musical</h2>
-      <p class="mt-6 text-lg md:text-2xl">En Kid Pam Pum entendemos la música como una experiencia que se vive.</p>
-      <p class="mt-5 text-[15px] md:text-lg">Creamos un entorno donde aprender, jugar, explorar y compartir forman parte del mismo proceso.</p>
-      <p class="mt-4 text-[15px] md:text-lg">Nuestro enfoque busca que cada persona se relacione con la música de forma natural, desde la curiosidad, la escucha y la práctica real.</p>
+<Section id="quienes-somos" class="relative overflow-hidden bg-white/70">
+  <div
+    class="absolute inset-0 -z-10 bg-cover bg-center"
+    style={`background-image: url('${aboutBackground}');`}
+    aria-hidden="true"
+  ></div>
+  <div class="absolute inset-0 -z-5 bg-[linear-gradient(180deg,rgba(15,23,42,0.72)_0%,rgba(15,23,42,0.55)_100%)]"></div>
+
+  <Container class:list="relative z-10 !py-18 md:!py-24">
+    <div class="mx-auto max-w-4xl rounded-[2rem] border border-white/30 bg-white/85 p-8 shadow-[0_20px_55px_rgba(15,23,42,0.14)] backdrop-blur lg:p-12">
+      <h2 class="h2 text-white">Más que una escuela, una casita musical</h2>
+      <p class="mt-6 text-lg text-white md:text-2xl">En Kid Pam Pum entendemos la música como una experiencia que se vive.</p>
+      <p class="mt-5 text-[15px] text-white/85 md:text-lg">Creamos un entorno donde aprender, jugar, explorar y compartir forman parte del mismo proceso.</p>
+      <p class="mt-4 text-[15px] text-white/85 md:text-lg">Nuestro enfoque busca que cada persona se relacione con la música de forma natural, desde la curiosidad, la escucha y la práctica real.</p>
     </div>
   </Container>
 </Section>

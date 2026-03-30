@@ -2,51 +2,61 @@
 import Section from "~/components/Section.astro";
 import Container from "~/components/Container.astro";
 import CTA from "~/components/landing/CTA.astro";
+
+const heroBackground =
+  "https://www.kidpampum.com/wp-content/uploads/go-x/u/e02705f8-6865-41d5-95c7-7969c0e1cde2/image.jpg";
 ---
 
 <Section id="inicio" class="relative overflow-hidden">
-  <div class="absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_top_left,rgba(251,146,60,0.18),transparent_45%),radial-gradient(circle_at_85%_20%,rgba(244,114,182,0.14),transparent_28%)]"></div>
-  <Container class:list="relative z-10 !pt-10 !pb-20 md:!pt-16 lg:!pt-20 lg:!pb-24">
+  <div
+    class="absolute inset-0 -z-20 bg-cover bg-center"
+    style={`background-image: url('${heroBackground}');`}
+    aria-hidden="true"
+  ></div>
+  <div class="absolute inset-0 -z-10 bg-[linear-gradient(120deg,rgba(47,61,224,0.65),rgba(225,29,141,0.55))]"></div>
+  <div class="absolute inset-x-0 bottom-0 -z-10 h-40 bg-[linear-gradient(180deg,transparent_0%,rgba(255,248,240,0.94)_100%)]"></div>
+
+  <Container class:list="relative z-10 !pt-14 !pb-20 md:!pt-20 lg:!pt-24 lg:!pb-28">
     <div class="grid gap-10 lg:grid-cols-[1.08fr_.92fr] lg:items-center lg:gap-14">
       <div class="max-w-2xl">
-        <p class="inline-flex rounded-full border border-orange-200 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-700 shadow-sm md:text-sm">Escuela de música en Valencia</p>
-        <h1 class="mt-6 max-w-xl">La Casita Musical Kid Pam Pum</h1>
-        <p class="mt-5 max-w-xl text-lg font-semibold leading-8 text-fuchsia-700 md:text-2xl">Un espacio donde crear, jugar y disfrutar forman parte de una sola experiencia.</p>
-        <p class="mt-5 max-w-xl text-base text-slate-600 md:text-xl">Aquí aprenderás música de forma natural, inmersiva y divertida, como cuando aprendes un nuevo idioma viviendo en ese país.</p>
+        <p class="badge inline-flex rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] shadow-sm md:text-sm">Escuela de música en Valencia</p>
+        <h1 class="mt-6 max-w-xl text-white">La Casita Musical Kid Pam Pum</h1>
+        <p class="mt-5 max-w-xl text-lg font-semibold leading-8 text-white md:text-2xl">Un espacio donde crear, jugar y disfrutar forman parte de una sola experiencia.</p>
+        <p class="mt-5 max-w-xl text-base text-white/85 md:text-xl">Aquí aprenderás música de forma natural, inmersiva y divertida, como cuando aprendes un nuevo idioma viviendo en ese país.</p>
 
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <CTA href="/#clases" label="Ver clases" class="sm:min-w-[180px]" />
           <CTA href="/#contacto" label="Inscribirme" variant="outline" class="sm:min-w-[180px]" />
         </div>
 
-        <div class="mt-8 grid max-w-xl grid-cols-2 gap-3 text-sm text-slate-600 sm:grid-cols-3">
-          <div class="rounded-2xl border border-white/80 bg-white/70 px-4 py-3 shadow-sm">
-            <p class="font-bold text-slate-900">Niños</p>
+        <div class="mt-8 grid max-w-xl grid-cols-2 gap-3 text-sm text-white/80 sm:grid-cols-3">
+          <div class="rounded-2xl border border-white/15 bg-white/10 px-4 py-3 shadow-sm backdrop-blur-sm">
+            <p class="font-bold text-white">Niños</p>
             <p class="mt-1">Grupos por edad</p>
           </div>
-          <div class="rounded-2xl border border-white/80 bg-white/70 px-4 py-3 shadow-sm">
-            <p class="font-bold text-slate-900">Adultos</p>
+          <div class="rounded-2xl border border-white/15 bg-white/10 px-4 py-3 shadow-sm backdrop-blur-sm">
+            <p class="font-bold text-white">Adultos</p>
             <p class="mt-1">Todos los niveles</p>
           </div>
-          <div class="col-span-2 rounded-2xl border border-white/80 bg-white/70 px-4 py-3 shadow-sm sm:col-span-1">
-            <p class="font-bold text-slate-900">Colegios</p>
+          <div class="col-span-2 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 shadow-sm backdrop-blur-sm sm:col-span-1">
+            <p class="font-bold text-white">Colegios</p>
             <p class="mt-1">Propuesta educativa</p>
           </div>
         </div>
       </div>
 
       <div class="relative mx-auto w-full max-w-xl">
-        <div class="absolute -left-6 top-8 h-24 w-24 rounded-3xl bg-orange-300/60 blur-2xl md:-left-10"></div>
-        <div class="absolute -right-8 bottom-2 h-32 w-32 rounded-full bg-fuchsia-300/50 blur-2xl"></div>
+        <div class="absolute -left-6 top-8 h-24 w-24 rounded-3xl bg-white/10 blur-2xl md:-left-10"></div>
+        <div class="absolute -right-8 bottom-2 h-32 w-32 rounded-full bg-primary/25 blur-2xl"></div>
 
-        <div class="relative overflow-hidden rounded-[2rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.95)_0%,rgba(255,249,242,0.96)_100%)] p-5 shadow-[0_24px_70px_rgba(15,23,42,0.11)] md:p-8">
-          <div class="rounded-[1.6rem] bg-[linear-gradient(135deg,#fff1e7_0%,#fff8f5_50%,#fdf2f8_100%)] p-5 md:p-6">
+        <div class="relative overflow-hidden rounded-[2rem] border border-white/20 bg-[linear-gradient(180deg,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.08)_100%)] p-5 shadow-[0_24px_70px_rgba(15,23,42,0.2)] backdrop-blur-xl md:p-8">
+          <div class="rounded-[1.6rem] border border-white/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(248,250,252,0.94)_100%)] p-5 md:p-6">
             <div class="flex items-center justify-between gap-3">
               <div>
-                <p class="text-xs font-bold uppercase tracking-[0.18em] text-orange-700">Experiencia musical</p>
-                <p class="mt-2 font-serif text-2xl text-slate-900 md:text-3xl">Aprender haciendo</p>
+                <p class="inline-flex rounded-full bg-accent px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-slate-900">Experiencia musical</p>
+                <p class="mt-3 text-2xl text-primary md:text-3xl">Aprender haciendo</p>
               </div>
-              <div class="grid h-12 w-12 place-content-center rounded-2xl bg-white/80 text-orange-500 shadow-sm">
+              <div class="grid h-12 w-12 place-content-center rounded-2xl bg-primary/8 text-primary shadow-sm ring-1 ring-primary/10">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                   <path d="M19 2a1 1 0 0 1 1 1v11.382a3.5 3.5 0 1 1-2-3.163V7.618l-8 2.286v8.478a3.5 3.5 0 1 1-2-3.163V5.857a1 1 0 0 1 .725-.961l10-2.857A1 1 0 0 1 19 2Z" />
                 </svg>
@@ -54,29 +64,29 @@ import CTA from "~/components/landing/CTA.astro";
             </div>
 
             <div class="mt-6 grid gap-4 sm:grid-cols-2">
-              <div class="rounded-2xl border border-white/70 bg-white/70 p-4 shadow-sm">
-                <p class="text-sm font-semibold text-orange-700">Creatividad activa</p>
-                <p class="mt-2 text-sm leading-6">Improvisación, ritmo y juego musical desde el primer día.</p>
+              <div class="rounded-2xl border border-primary/10 bg-white p-4 shadow-sm">
+                <p class="text-sm font-semibold text-primary">Creatividad activa</p>
+                <p class="mt-2 text-sm leading-6 text-slate-600">Improvisación, ritmo y juego musical desde el primer día.</p>
               </div>
-              <div class="rounded-2xl border border-white/70 bg-white/70 p-4 shadow-sm">
-                <p class="text-sm font-semibold text-fuchsia-700">Aprendizaje inmersivo</p>
-                <p class="mt-2 text-sm leading-6">Escucha, práctica y expresión con acompañamiento cercano.</p>
+              <div class="rounded-2xl border border-primary/10 bg-white p-4 shadow-sm">
+                <p class="text-sm font-semibold text-secondary">Aprendizaje inmersivo</p>
+                <p class="mt-2 text-sm leading-6 text-slate-600">Escucha, práctica y expresión con acompañamiento cercano.</p>
               </div>
-              <div class="sm:col-span-2 rounded-2xl border border-white/70 bg-white/70 p-4 shadow-sm">
-                <p class="text-sm font-semibold text-teal-700">Ambiente cálido y profesional</p>
-                <p class="mt-2 text-sm leading-6">Grupos por edades, propuestas para todos los niveles y conexión real con la música.</p>
+              <div class="sm:col-span-2 rounded-2xl border border-primary/10 bg-white p-4 shadow-sm">
+                <p class="text-sm font-semibold text-primary">Ambiente cálido y profesional</p>
+                <p class="mt-2 text-sm leading-6 text-slate-600">Grupos por edades, propuestas para todos los niveles y conexión real con la música.</p>
               </div>
             </div>
 
-            <div class="mt-6 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-600 md:text-sm md:tracking-[0.12em]">
-              <span class="rounded-full bg-white/80 px-3 py-2 shadow-sm">Ritmo</span>
-              <span class="rounded-full bg-white/80 px-3 py-2 shadow-sm">Melodía</span>
-              <span class="rounded-full bg-white/80 px-3 py-2 shadow-sm">Instrumentos</span>
-              <span class="rounded-full bg-white/80 px-3 py-2 shadow-sm">Comunidad</span>
+            <div class="mt-6 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary/80 md:text-sm md:tracking-[0.12em]">
+              <span class="rounded-full bg-primary/5 px-3 py-2 shadow-sm ring-1 ring-primary/10">Ritmo</span>
+              <span class="rounded-full bg-primary/5 px-3 py-2 shadow-sm ring-1 ring-primary/10">Melodía</span>
+              <span class="rounded-full bg-primary/5 px-3 py-2 shadow-sm ring-1 ring-primary/10">Instrumentos</span>
+              <span class="rounded-full bg-primary/5 px-3 py-2 shadow-sm ring-1 ring-primary/10">Comunidad</span>
             </div>
           </div>
 
-          <div class="pointer-events-none absolute inset-x-6 bottom-0 h-10 rounded-full bg-orange-200/30 blur-2xl"></div>
+          <div class="pointer-events-none absolute inset-x-6 bottom-0 h-10 rounded-full bg-primary/20 blur-2xl"></div>
         </div>
       </div>
     </div>

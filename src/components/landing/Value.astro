@@ -12,7 +12,7 @@ import { valueItems } from "~/data/site";
     </div>
 
     <div class="grid gap-5 md:grid-cols-3 lg:gap-7">
-      {valueItems.map((item) => <FeatureCard title={item.title} description={item.description} />)}
+      {valueItems.map((item) => <FeatureCard title={item.title} description={item.description} image={item.image} />)}
     </div>
   </Container>
 </Section>

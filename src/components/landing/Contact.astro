@@ -2,17 +2,26 @@
 import Section from "~/components/Section.astro";
 import Container from "~/components/Container.astro";
 import CTA from "~/components/landing/CTA.astro";
+
+const contactBackground = "/images/fachada-contact.jpg"; // reemplaza por foto de la fachada cuando la tengas
 ---
 
-<Section id="contacto">
-  <Container class:list="!py-18 md:!py-24">
+<Section id="contacto" class="relative overflow-hidden">
+  <div
+    class="absolute inset-0 -z-10 bg-cover bg-center"
+    style={`background-image: url('${contactBackground}');`}
+    aria-hidden="true"
+  ></div>
+  <div class="absolute inset-0 -z-5 bg-[linear-gradient(120deg,rgba(15,23,42,0.7),rgba(47,61,224,0.45))]"></div>
+
+  <Container class:list="relative z-10 !py-18 md:!py-24">
     <div class="mx-auto mb-12 max-w-3xl text-center md:mb-16">
-      <h2 class="h2">Contacto</h2>
-      <p class="mt-4 text-lg md:text-xl">Te ayudamos a encontrar la clase ideal para empezar hoy mismo.</p>
+      <h2 class="h2 text-white">Contacto</h2>
+      <p class="mt-4 text-lg text-white/85 md:text-xl">Te ayudamos a encontrar la clase ideal para empezar hoy mismo.</p>
     </div>
 
     <div class="grid gap-6 lg:grid-cols-[.95fr_1.05fr] lg:gap-8">
-      <aside class="rounded-[2rem] border border-white/80 bg-white/90 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.06)] md:p-8">
+      <aside class="rounded-[2rem] border border-white/40 bg-white/85 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.16)] backdrop-blur md:p-8">
         <h3 class="text-2xl md:text-[1.95rem]">Datos de contacto</h3>
         <div class="mt-6 space-y-4 text-sm leading-7 md:text-base">
           <p><strong>Teléfono:</strong> <a href="tel:+34633796409" class="text-fuchsia-700 hover:underline">633796409</a></p>
@@ -29,7 +38,7 @@ import CTA from "~/components/landing/CTA.astro";
         />
       </aside>
 
-      <div class="rounded-[2rem] border border-white/80 bg-white/90 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.06)] md:p-8">
+      <div class="rounded-[2rem] border border-white/40 bg-white/85 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.16)] backdrop-blur md:p-8">
         <h3 class="text-2xl md:text-[1.95rem]">Formulario de contacto</h3>
 
         <form id="contact-form" class="mt-7 space-y-5">
