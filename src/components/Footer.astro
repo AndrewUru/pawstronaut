@@ -1,18 +1,49 @@
 ---
-import { siteName } from "~/data/config";
-import SocialMediaIcons from "./SocialMediaIcons.astro";
+import { siteName, siteSlogan, phone, email, address } from "~/data/config";
 const currentYear = new Date().getFullYear();
+
+const menuFooter = [
+  { name: "Inicio", url: "/#inicio" },
+  { name: "Quiénes somos", url: "/#quienes-somos" },
+  { name: "Propuesta Colegios", url: "/#colegios" },
+  { name: "Contacto", url: "/#contacto" },
+];
 ---
 
-<footer class="bg-gradient-to-r from-fuchsia-500 to-teal-500 text-white">
-	<div class="py-12 md:flex md:items-center md:justify-between container">
-		<div class="flex justify-center gap-x-6 md:order-2 [&_svg]:text-white">
-			<SocialMediaIcons />
-		</div>
-		<p class="mt-10 max-md:text-center text-base">
-			&copy; {currentYear}
-			{siteName}. All rights reserved.<br />
-			<a class="underline" href="/privacy-policy">Privacy policy</a>
-		</p>
-	</div>
+<footer class="mt-16 bg-[linear-gradient(180deg,#1f2937_0%,#0f172a_100%)] text-white">
+  <div class="container py-14 lg:py-20">
+    <div class="grid gap-10 md:grid-cols-3">
+      <div>
+        <p class="font-black text-2xl">{siteName}</p>
+        <p class="mt-1 text-sm tracking-[0.18em] text-orange-200 uppercase">{siteSlogan}</p>
+        <p class="mt-4 max-w-sm text-sm leading-7 text-slate-300">
+          Escuela de música en Valencia para niños, jóvenes, adultos y colegios.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-sm font-bold uppercase tracking-wider text-orange-200">Navegación</p>
+        <ul class="mt-4 space-y-3">
+          {menuFooter.map((item) => (
+            <li>
+              <a class="text-slate-200 transition hover:text-white" href={item.url}>{item.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-sm font-bold uppercase tracking-wider text-orange-200">Contacto</p>
+        <ul class="mt-4 space-y-3 text-slate-200">
+          <li><a href={phone.href} class="transition hover:text-white">{phone.label}</a></li>
+          <li><a href={email.href} class="transition hover:text-white">{email.label}</a></li>
+          <li>{address.street}, {address.city}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-slate-700 pt-6 text-sm text-slate-300">
+      <p>&copy; {currentYear} {siteName} - {siteSlogan}. Todos los derechos reservados.</p>
+    </div>
+  </div>
 </footer>

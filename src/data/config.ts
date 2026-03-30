@@ -1,40 +1,30 @@
 // Variables globales
 export const siteLang = "es-ES";
 export const siteCurrency = "EUR";
-export const siteDomain = "refugioastronauta.com";
-export const siteName = "Refugio Astronauta";
-export const siteSlogan = "¡El mejor refugio de mascotas en la galaxia!";
-export const themeColor = "#FF0000";
+export const siteDomain = "kidpampum.com";
+export const siteName = "Kid Pam Pum";
+export const siteSlogan = "La Casita Musical";
+export const themeColor = "#f97316";
 
 export const phone = {
-  href: "tel:+34912345678",
-  label: "+34 912 345 678",
+  href: "tel:+34633796409",
+  label: "633 796 409",
 };
 
 export const email = {
-  href: "mailto:info@refugioastronauta.com",
-  label: "info@refugioastronauta.com",
+  href: "mailto:kidpampum@hotmail.com",
+  label: "kidpampum@hotmail.com",
 };
 
 export const address = {
-  street: "Calle Espacial, 123",
-  city: "Ciudad Galáctica",
-  zip: "28001",
-  state: "Madrid",
-  country: "España",
+  street: "Calle Gibraltar 31",
+  city: "Valencia",
+  zip: "46005",
+  state: "Valencia",
+  country: "Espana",
 };
 
 export const socialMedia = {
-  facebook: {
-    url: "https://facebook.com",
-    label: "Facebook",
-    icon: "facebook",
-  },
-  x: {
-    url: "https://x.com",
-    label: "X",
-    icon: "x",
-  },
   instagram: {
     url: "https://instagram.com",
     label: "Instagram",
@@ -48,11 +38,11 @@ export const socialMedia = {
 };
 
 export const hours = {
-  monday: "9:00 - 18:00",
-  tuesday: "9:00 - 18:00",
-  wednesday: "9:00 - 18:00",
-  thursday: "9:00 - 18:00",
-  friday: "9:00 - 18:00",
-  saturday: "10:00 - 14:00",
+  monday: "9:00 - 12:00 | 17:00 - 21:00",
+  tuesday: "17:00 - 21:00",
+  wednesday: "17:00 - 21:00",
+  thursday: "17:00 - 21:00",
+  friday: "9:00 - 12:00 | 17:00 - 21:00",
+  saturday: "Cita previa",
   sunday: "Cerrado",
 };

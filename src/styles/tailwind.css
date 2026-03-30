@@ -7,8 +7,21 @@ body {
   @apply h-full antialiased scroll-smooth;
 }
 
+:root {
+  --surface: rgba(255, 255, 255, 0.88);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --border-soft: rgba(251, 146, 60, 0.18);
+  --shadow-soft: 0 20px 50px rgba(15, 23, 42, 0.08);
+  --shadow-card: 0 12px 30px rgba(15, 23, 42, 0.07);
+}
+
 body {
-  @apply h-full scroll-smooth font-sans text-gray-700;
+  @apply h-full font-sans text-[15px] text-slate-700 md:text-base;
+  background-color: #fffaf5;
+  background-image:
+    radial-gradient(circle at 18% 0%, rgba(251, 146, 60, 0.14), transparent 42%),
+    radial-gradient(circle at 100% 78%, rgba(236, 72, 153, 0.08), transparent 36%),
+    linear-gradient(180deg, #fff8f0 0%, #fffdf9 44%, #fff7ee 100%);
 }
 
 h1,
@@ -17,69 +30,55 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-bold break-words font-caveat;
+  @apply break-words text-slate-900;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.03em;
 }
 
 h1,
 .h1 {
-  @apply text-5xl lg:text-7xl;
+  @apply text-4xl leading-[0.96] md:text-6xl lg:text-7xl;
 }
 
 h2,
 .h2 {
-  @apply text-5xl lg:text-6xl;
+  @apply text-3xl leading-tight md:text-5xl lg:text-6xl;
 }
 
 h3,
 .h3 {
-  @apply text-4xl lg:text-5xl;
+  @apply text-2xl leading-tight md:text-[2rem];
 }
 
 h4,
 .h4 {
-  @apply text-3xl lg:text-4xl;
-}
-
-h5,
-.h5 {
-  @apply text-2xl lg:text-3xl;
-}
-
-h6,
-.h6 {
-  @apply text-xl lg:text-2xl;
+  @apply text-xl md:text-2xl;
 }
 
 p {
-  @apply leading-relaxed;
+  @apply leading-8;
 }
 
 .button {
-  @apply rounded-xl px-4 py-3 text-lg transition duration-300 font-bold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+  @apply inline-flex items-center justify-center rounded-2xl px-5 py-3.5 text-sm font-bold tracking-[0.01em] transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:px-6 md:text-base;
+  box-shadow: var(--shadow-card);
 }
 
 .button-teal {
-  @apply bg-teal-500 hover:bg-teal-500/80 text-white focus-visible:outline-teal-500;
+  @apply bg-teal-500 text-white hover:-translate-y-0.5 hover:bg-teal-600 focus-visible:outline-teal-500;
 }
 
 .button-fuchsia {
-  @apply bg-fuchsia-500 hover:bg-fuchsia-500/80 text-white focus-visible:outline-fuchsia-500;
+  @apply text-white hover:-translate-y-0.5 focus-visible:outline-fuchsia-500;
+  background-image: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
 }
 
 .button-white {
-  @apply bg-white text-gray-700 hover:bg-white/80 focus-visible:outline-white;
+  @apply bg-white text-slate-700 hover:-translate-y-0.5 hover:bg-orange-50 focus-visible:outline-white;
 }
 
-.menu-item-highlighted.menu-item-highlighted {
-  @apply text-white bg-teal-500 px-4 rounded-full py-1.5 hover:bg-opacity-80 hover:text-white;
-}
-
-.menu-item-active.menu-item-highlighted {
-  @apply hover:text-white;
-}
-
-.menu-item-active:not(.menu-item-highlighted) {
-  @apply text-fuchsia-500 font-bold;
+.button-outline {
+  @apply border border-orange-200 bg-white/80 text-slate-800 hover:-translate-y-0.5 hover:border-orange-300 hover:bg-white focus-visible:outline-fuchsia-500;
 }
 
 [x-cloak] {
@@ -90,55 +89,24 @@ main > section:first-child {
   padding-top: var(--header-height);
 }
 
+section {
+  @apply relative;
+}
+
 section.bg-white + section.bg-white > .container {
   @apply pt-0;
 }
 
 input,
 textarea {
-  @apply border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-teal-500;
+  @apply w-full rounded-2xl border border-orange-200 bg-white px-4 py-3.5 text-slate-700 focus:outline-none focus:ring-2 focus:ring-orange-300;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.03);
 }
 
 label {
-  @apply block text-sm/6 font-semibold;
+  @apply block text-sm font-semibold text-slate-800;
 }
 
-/* Swiper */
-.swiper-pagination-bullet-active.swiper-pagination-bullet-active {
-  @apply bg-fuchsia-500;
-}
-
-body,
-section.bg-white {
-  background-image: url("/pattern.jpg");
-  background-repeat: repeat;
-}
-
-/* caveat-brush-regular - latin */
-@font-face {
-  font-display: swap;
-  font-family: "Caveat Brush";
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/caveat/caveat-brush-v11-latin-regular.woff2") format("woff2");
-}
-
-:root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-}
-
-[data-theme="dark"] {
-  --bg-color: #121212;
-  --text-color: #ffffff;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.header {
-  background-color: var(--bg-color);
+::selection {
+  @apply bg-orange-200 text-slate-900;
 }

@@ -1,14 +1,16 @@
 ---
-import { Image } from "astro:assets";
-import Logo from "~/assets/images/logo-pawstronaut.svg";
-import { siteSlogan } from "~/data/config.js";
+import { siteName, siteSlogan } from "~/data/config.js";
 ---
 
-<div class="flex items-center gap-2 lg:gap-6">
-	<Logo class="w-auto h-8 lg:h-12" />
+<div class="flex items-center gap-3 lg:gap-4">
+  <div class="grid size-10 place-content-center rounded-2xl bg-gradient-to-br from-orange-400 to-fuchsia-500 text-white shadow-lg lg:size-12">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 lg:size-7" aria-hidden="true">
+      <path d="M12 3a1 1 0 0 1 1 1v5.126a4.002 4.002 0 0 1 2.874 2.874H21a1 1 0 1 1 0 2h-5.126a4.002 4.002 0 0 1-2.874 2.874V22a1 1 0 1 1-2 0v-5.126A4.002 4.002 0 0 1 8.126 14H3a1 1 0 1 1 0-2h5.126A4.002 4.002 0 0 1 11 9.126V4a1 1 0 0 1 1-1Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>
+    </svg>
+  </div>
 
-	<div>
-		<h1 class="text-xl lg:text-4xl font-semibold">Refugio Astronauta</h1>
-		<p class="max-lg:hidden text-sm text-center italic">{siteSlogan}</p>
-	</div>
+  <div>
+    <p class="font-black leading-tight text-slate-900 text-base lg:text-lg">{siteName}</p>
+    <p class="text-xs lg:text-sm text-slate-600 leading-tight">{siteSlogan}</p>
+  </div>
 </div>

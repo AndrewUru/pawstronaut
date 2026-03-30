@@ -1,0 +1,28 @@
+---
+import Button from "~/components/Button.astro";
+
+const {
+  href = "/#contacto",
+  label,
+  variant = "fuchsia",
+  newtab = false,
+  class: className = "",
+} = Astro.props;
+---
+
+{
+  variant === "outline" ? (
+    <a
+      href={href}
+      target={newtab ? "_blank" : "_self"}
+      rel={newtab ? "noopener noreferrer" : ""}
+      class={`button button-outline ${className}`}
+    >
+      {label}
+    </a>
+  ) : (
+    <Button url={href} color={variant} newtab={newtab} class={className}>
+      {label}
+    </Button>
+  )
+}

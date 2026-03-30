@@ -2,10 +2,9 @@
 import { siteName, address } from "~/data/config.js";
 ---
 
-<address class="not-italic text-lg">
-	{siteName}<br />
-	{address.street}<br />
-	{address.city}, {address.state}
-	{address.zip}<br />
-	{address.country}
+<address class="not-italic text-base leading-relaxed">
+  <strong>{siteName} - La Casita Musical</strong><br />
+  {address.street}<br />
+  {address.city}, {address.state}, {address.zip}<br />
+  España
 </address>

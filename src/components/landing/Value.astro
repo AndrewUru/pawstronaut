@@ -1,0 +1,18 @@
+---
+import Section from "~/components/Section.astro";
+import Container from "~/components/Container.astro";
+import FeatureCard from "~/components/landing/FeatureCard.astro";
+import { valueItems } from "~/data/site";
+---
+
+<Section class="bg-white/70">
+  <Container class:list="!py-18 md:!py-24">
+    <div class="mx-auto mb-12 max-w-3xl text-center md:mb-16">
+      <h2 class="h2">Nuestra propuesta de valor</h2>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-3 lg:gap-7">
+      {valueItems.map((item) => <FeatureCard title={item.title} description={item.description} />)}
+    </div>
+  </Container>
+</Section>
