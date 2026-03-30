@@ -5,29 +5,60 @@ import LogoContainer from "~/components/LogoContainer.astro";
 
 <header>
   <div id="header-wrapper" class="fixed inset-x-0 top-0 z-40">
-    <div class="container py-3 lg:py-5">
-      <nav class="flex items-center justify-between gap-4 rounded-[1.75rem] border border-primary/20 bg-[linear-gradient(90deg,#2F3DE0_0%,#4338CA_100%)] px-4 py-3 shadow-[0_18px_45px_rgba(47,61,224,0.22)] backdrop-blur-xl lg:px-6" aria-label="Principal">
-        <a href="/#inicio" class="shrink-0" aria-label="Ir al inicio de Kid Pam Pum">
-          <LogoContainer />
-        </a>
+    <div class="container relative py-3 lg:py-5">
+      <nav class="flex items-center gap-4 rounded-[1.75rem] border border-primary/20 bg-[linear-gradient(90deg,#2F3DE0_0%,#4338CA_100%)] px-4 py-3 shadow-[0_18px_45px_rgba(47,61,224,0.22)] backdrop-blur-xl lg:px-6" aria-label="Principal">
+        <div class="flex flex-1 items-center gap-3">
+          <a href="/#inicio" class="shrink-0" aria-label="Ir al inicio de Kid Pam Pum">
+            <LogoContainer />
+          </a>
 
-        <div class="hidden lg:flex items-center gap-7">
-          {menuMain.map((item) => (
-            <a href={item.url} class="text-sm font-semibold tracking-wide text-white/85 transition hover:text-white">
-              {item.name}
-            </a>
-          ))}
+          <div class="hidden lg:flex items-center gap-7">
+            {menuMain.map((item) => (
+              <a href={item.url} class="text-sm font-semibold tracking-wide text-white/85 transition hover:text-white">
+                {item.name}
+              </a>
+            ))}
+          </div>
         </div>
 
-        <a href="/#contacto" class="button button-fuchsia !rounded-full !px-5 !py-2.5 text-sm">Inscribirme</a>
+        <div class="flex items-center gap-3">
+          <a href="/#contacto" class="hidden sm:inline-flex button button-fuchsia !rounded-full !px-5 !py-2.5 text-sm">Inscribirme</a>
+
+          <button
+            id="nav-toggle"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white transition hover:border-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Abrir menú de navegación"
+            type="button"
+          >
+            <span class="sr-only">Abrir menú</span>
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
       </nav>
 
-      <div class="mt-3 overflow-x-auto lg:hidden">
-        <ul class="flex min-w-max items-center gap-3 pb-1">
+      <div
+        id="mobile-menu"
+        class="lg:hidden invisible absolute inset-x-4 top-[calc(var(--header-height,0px)+0.75rem)] origin-top scale-95 rounded-2xl border border-primary/10 bg-white/95 px-6 py-5 shadow-[0_24px_60px_rgba(0,0,0,0.14)] opacity-0 backdrop-blur-xl transition duration-200 ease-out data-[open=true]:visible data-[open=true]:scale-100 data-[open=true]:opacity-100"
+      >
+        <div class="flex items-center justify-between gap-3 pb-4">
+          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Menú</span>
+          <a href="/#contacto" class="button button-fuchsia !rounded-full !px-4 !py-2 text-sm">Inscribirme</a>
+        </div>
+        <ul class="space-y-2">
           {menuMain.map((item) => (
             <li>
-              <a href={item.url} class="inline-flex rounded-full border border-primary/15 bg-white/85 px-4 py-2 text-sm font-semibold text-primary shadow-sm transition hover:border-secondary/30 hover:text-secondary">
-                {item.name}
+              <a
+                href={item.url}
+                class="flex items-center justify-between rounded-xl border border-transparent px-4 py-3 text-base font-semibold text-primary transition hover:border-primary/15 hover:bg-primary/5"
+              >
+                <span>{item.name}</span>
+                <svg class="h-4 w-4 text-primary/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
               </a>
             </li>
           ))}
@@ -40,13 +71,46 @@ import LogoContainer from "~/components/LogoContainer.astro";
 <script>
   document.addEventListener("astro:page-load", () => {
     const headerWrapper = document.getElementById("header-wrapper");
-    if (!headerWrapper) return;
+    const mobileMenu = document.getElementById("mobile-menu");
+    const toggleBtn = document.getElementById("nav-toggle");
+
+    if (!headerWrapper || !mobileMenu || !toggleBtn) return;
 
     const setHeaderHeight = () => {
       document.documentElement.style.setProperty("--header-height", `${headerWrapper.offsetHeight}px`);
     };
 
+    const setMenuState = (open) => {
+      mobileMenu.dataset.open = String(open);
+      toggleBtn.setAttribute("aria-expanded", String(open));
+      toggleBtn.setAttribute("aria-label", open ? "Cerrar menú de navegación" : "Abrir menú de navegación");
+      document.body.classList.toggle("overflow-hidden", open);
+    };
+
+    toggleBtn.addEventListener("click", () => {
+      const isOpen = mobileMenu.dataset.open === "true";
+      setMenuState(!isOpen);
+    });
+
+    document.addEventListener("keyup", (event) => {
+      if (event.key === "Escape" && mobileMenu.dataset.open === "true") {
+        setMenuState(false);
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      setHeaderHeight();
+      if (window.innerWidth >= 1024 && mobileMenu.dataset.open === "true") {
+        setMenuState(false);
+      }
+    });
+
+    mobileMenu.addEventListener("click", (event) => {
+      if (event.target instanceof HTMLElement && event.target.tagName === "A") {
+        setMenuState(false);
+      }
+    });
+
     setHeaderHeight();
-    window.addEventListener("resize", setHeaderHeight);
   });
 </script>
