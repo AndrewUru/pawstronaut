@@ -80,7 +80,7 @@ import LogoContainer from "~/components/LogoContainer.astro";
       document.documentElement.style.setProperty("--header-height", `${headerWrapper.offsetHeight}px`);
     };
 
-    const setMenuState = (open) => {
+    const setMenuState = (open: boolean) => {
       mobileMenu.dataset.open = String(open);
       toggleBtn.setAttribute("aria-expanded", String(open));
       toggleBtn.setAttribute("aria-label", open ? "Cerrar menú de navegación" : "Abrir menú de navegación");
